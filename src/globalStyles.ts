@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
 html, body, #root {
   height: 100%;
   font-size: 10px;
-  font-family: 'Epilogue', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 body {
   line-height: 1.5;

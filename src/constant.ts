@@ -11,11 +11,10 @@ export const QUERIES = {
 };
 
 export const COLORS = {
-  primary: "hsla(219, 43%, 16%)",
-  secendary: "hsla(218, 20%, 36%)",
-  ash: "hsla(30, 33%, 93%)",
-  white: "hsla(30, 29%, 97%)",
-  violet: "hsla(264, 100%, 69%)",
-  pink: "hsla(292, 76%, 54%)",
-  orange: "hsla(31, 100%, 65%)",
+  primaryBlue: "hsla(228, 100%, 66%)",
+  secondaryBlue: "hsla(228, 100%, 75%)",
+  primaryDark: "hsla(228, 22%, 26%)",
+  secondaryDark: "hsla(229, 22%, 19%)",
+  gray: "hsla(227, 13%, 52%)",
+  orange: "hsla(0, 83%, 65%)",
 };
