@@ -1,3 +1,4 @@
+import { COLORS } from './constant';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -17,6 +18,7 @@ html, body, #root {
   height: 100%;
   font-size: 10px;
   font-family: 'Kumbh Sans', sans-serif;
+  color: ${COLORS.primaryDark};
 }
 body {
   line-height: 1.5;
