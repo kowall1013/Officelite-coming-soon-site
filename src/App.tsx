@@ -7,9 +7,10 @@ import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
 import Home from './pages/Home';
 import Registration from './pages/Registration';
+import { COLORS } from "./constant";
 
 const Wrapper = styled.div`
-  padding: 0 24px;
+  background-color: ${COLORS.ashWhite};
 `;
 
 function App(): JSX.Element {

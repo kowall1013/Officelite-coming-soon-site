@@ -6,11 +6,14 @@ type ButtonProps = {
 }
 
 const StyledButton = styled.button`
+  padding: 14px 41px; 
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 2.8rem;
   color: white;
   background-color: ${COLORS.primaryBlue};
+  border: none;
+  border-radius: 50px;
 `;
 
 

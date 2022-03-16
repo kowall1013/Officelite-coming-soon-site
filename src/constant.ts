@@ -17,4 +17,6 @@ export const COLORS = {
   secondaryDark: "hsla(229, 22%, 19%)",
   gray: "hsla(227, 13%, 52%)",
   orange: "hsla(0, 83%, 65%)",
+  white: "hsla(0, 0%, 100%)",
+  ashWhite: "hsla(0, 0%, 98%, 1)",
 };
