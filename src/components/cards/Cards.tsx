@@ -29,14 +29,20 @@ const Main = styled.main`
   padding: 0 24px;
 `;
 
+const CardsList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
 
 function Cards({ cards }: CardsProps): JSX.Element {
 
   return (
     <Main>
-      <ul>
+      <CardsList>
         {cards.map(card => <Card key={card.id} card={card} />)}
-      </ul>
+      </CardsList>
     </Main>
   )
 }

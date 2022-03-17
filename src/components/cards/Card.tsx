@@ -9,9 +9,9 @@ type CardWrapperProps = {
 
 const CardWrapper = styled.li<CardWrapperProps>`
   background-color: ${({ bgc }) => bgc};
-  background-image: url('./assets/home/bg-pattern-pricing.svg');
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(${({ withBgcPattern }) => withBgcPattern ? './assets/home/bg-pattern-pricing.svg' : ''});
+  background-position: 50% -50%;
+  background-repeat: center top;
   background-size: cover;
   padding: 40px 0;
   border-radius: 13px;
