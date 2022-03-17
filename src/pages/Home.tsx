@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CardsSection from '../components/sections/CardsSection';
+import FooterSection from '../components/sections/FooterSection';
 import HeaderSection from '../components/sections/HeaderSection';
 import { COLORS } from '../constant';
 
@@ -12,6 +13,7 @@ function Home(): JSX.Element {
     <Wrapper>
       <HeaderSection />
       <CardsSection />
+      <FooterSection />
     </Wrapper>
   )
 }
