@@ -5,7 +5,13 @@ import CountDownTimer from "../coundownTimer";
 
 const Footer = styled.footer`
   background-color: ${COLORS.secondaryDark};
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 24px;
+  height: 1248px;
+
 `;
 
 function FooterSection(): JSX.Element {

@@ -27,6 +27,7 @@ const Main = styled.main`
   margin-top: 100px;
   background-color: ${COLORS.ashWhite};
   padding: 0 24px;
+
 `;
 
 const CardsList = styled.div`
