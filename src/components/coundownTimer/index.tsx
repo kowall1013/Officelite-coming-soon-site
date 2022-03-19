@@ -57,12 +57,26 @@ function CountDownTimer(): JSX.Element {
   const [year, setYear] = useState<number>();
   const [month, setMonth] = useState<string>('');
   const [day, setDay] = useState<number>();
+  const [upcomeDate, setUpComeDate] = useState<Date>()
+  const [currDate, setCurrDate] = useState<Date>()
+
+  const DateDiff = {
+    inDays: (d1: Date, d2: Date) => {
+      const t2 = d2?.getTime();
+      const t1 = d1?.getTime()
+
+      console.log('t2', t2)
+      console.log('t1', t1)
+
+      return ((t2 - t1) / (24 * 3600 * 1000))
+    }
+  }
 
   useEffect(() => {
-    // const upcomingDate = new Date('2022-05-20');
-
 
     let upcomingDate = new Date();
+    let currentDate = new Date();
+
     upcomingDate.setDate(upcomingDate.getDate() + 47);
     upcomingDate.setHours(
       upcomingDate.getHours() + 7,
@@ -70,21 +84,21 @@ function CountDownTimer(): JSX.Element {
       upcomingDate.getSeconds() + 14
     );
 
-    console.log(upcomingDate);
-
-
-
-
     setYear(upcomingDate.getFullYear())
     setMonth(months[upcomingDate.getMonth()])
     setDay(upcomingDate.getDate())
+
+    setUpComeDate(upcomingDate);
+    setCurrDate(currentDate);
+
   }, [])
+
   return (
     <Wrapper>
       <TimerHeader>coming <span>{day} {month} {year}</span></TimerHeader>
       <List>
         <ListItem>
-          <span>47</span>
+          <span>{DateDiff.inDays(upcomeDate as Date, currDate as Date)}</span>
           <span>days</span>
         </ListItem>
         <ListItem>
