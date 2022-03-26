@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import { COLORS } from '../../constant';
 
 type ButtonProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
+  href: string;
 }
 
 const StyledButton = styled.button`
@@ -17,9 +19,13 @@ const StyledButton = styled.button`
 `;
 
 
-function Button({ children }: ButtonProps): JSX.Element {
+function Button({ children, href }: ButtonProps): JSX.Element {
   return (
-    <StyledButton>{children}</StyledButton>
+    <Link to={href}>
+      <StyledButton>
+        {children}
+      </StyledButton>
+    </Link>
   )
 }
 

@@ -24,10 +24,10 @@ type CardsProps = {
 }
 
 const Main = styled.main`
-  margin-top: 100px;
-  background-color: ${COLORS.ashWhite};
   padding: 0 24px;
-
+  position: absolute;
+  width: 100%;
+  transform: translateY(-50%);
 `;
 
 const CardsList = styled.div`

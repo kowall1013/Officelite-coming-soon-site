@@ -8,12 +8,16 @@ const Wrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-const TimerHeader = styled.p`
+type TimerHeaderProps = {
+  second?: boolean;
+}
+
+const TimerHeader = styled.p<TimerHeaderProps>`
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 4.8rem;
   letter-spacing: 5px;
-  color: ${COLORS.white};
+  color: ${({ second }) => second ? COLORS.primaryDark : COLORS.white};
   text-transform: uppercase;
   margin-bottom: 18px;
   text-align: center;
@@ -25,15 +29,16 @@ const TimerHeader = styled.p`
 
 type CountdownTimerProps = {
   targetDate: number;
+  second?: boolean;
 }
 
-function CountdownTimer({ targetDate }: CountdownTimerProps): JSX.Element {
+function CountdownTimer({ targetDate, second }: CountdownTimerProps): JSX.Element {
   const [days, hours, minutes, seconds] = useCountdown(targetDate)
   const [day, month, year] = useTargetDate(targetDate)
 
   return (
     <Wrapper>
-      <TimerHeader>coming <span>{day} {month} {year}</span></TimerHeader>
+      <TimerHeader second={second}>coming <span>{day} {month} {year}</span></TimerHeader>
       {(days + hours + minutes + seconds) <= 0 ? (
         <p>Fising</p>
       ) : (
@@ -42,6 +47,7 @@ function CountdownTimer({ targetDate }: CountdownTimerProps): JSX.Element {
           hours={hours}
           minutes={minutes}
           seconds={seconds}
+          second={second}
         />
       )}
     </Wrapper>

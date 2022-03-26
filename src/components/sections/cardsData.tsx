@@ -21,7 +21,7 @@ export const cards = [
         feature: 'Great security and support'
       }
     ],
-    btn: <Button>Try for Free</Button>,
+    btn: <Button href="registration">Try for Free</Button>,
     bgc: COLORS.white,
     withBgcPattern: false,
     secondColor: false,
@@ -45,7 +45,7 @@ export const cards = [
         feature: 'More control and insights'
       }
     ],
-    btn: <Button>Try for Free</Button>,
+    btn: <Button href="registration">Try for Free</Button>,
     bgc: COLORS.primaryBlue,
     withBgcPattern: true,
     secondColor: true,
@@ -69,7 +69,7 @@ export const cards = [
         feature: 'VIP support'
       }
     ],
-    btn: <Button>Try for Free</Button>,
+    btn: <Button href="registration">Try for Free</Button>,
     bgc: COLORS.white,
     withBgcPattern: false,
     secondColor: false,

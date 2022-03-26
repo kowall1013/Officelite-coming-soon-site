@@ -5,13 +5,14 @@ import CountDownTimer from "../coundownTimer/CountdownTimer";
 
 const Footer = styled.footer`
   background-color: ${COLORS.secondaryDark};
+  background-image: url('/assets/home/bg-pattern-footer.svg');
+  background-size: cover;
+  background-position: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 24px;
-  height: 1248px;
-
+  padding: 862px 24px 100px 24px;
 `;
 
 function FooterSection(): JSX.Element {
@@ -23,7 +24,7 @@ function FooterSection(): JSX.Element {
   return (
     <Footer>
       <CountDownTimer targetDate={dateTimeAfterThreeDays} />
-      <Button>Get Started</Button>
+      <Button href="registration">Get Started</Button>
     </Footer>
   )
 }

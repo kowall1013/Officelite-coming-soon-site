@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { COLORS } from '../../constant';
-import Button from '../controls/Button';
+import CountdownTimer from '../coundownTimer/CountdownTimer';
+import Registration from '../form/Registration';
 
 const Section = styled.section`
   position: relative;
   display: grid;
   justify-items: center;
-  padding: 0 24px 862px 24px;
+  padding: 0 24px;
   background-color: ${COLORS.ashWhite};
 `;
 
@@ -20,15 +21,6 @@ const PatternWrapper = styled.div`
 const LogoWrapper = styled.div`
   margin-top: 46px;
   margin-bottom: 80px;
-`;
-
-const IlustrationWrapper = styled.div`
-  margin-bottom: 36px;
-
-  img {
-    max-width: 50%;
-    margin: 0 auto;
-  }
 `;
 
 const MainWrapper = styled.main`
@@ -53,7 +45,11 @@ const Description = styled.p`
   margin-bottom: 24px;
 `;
 
-function HeaderSection() {
+function HeaderRegistaration(): JSX.Element {
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
   return (
     <Section>
       <PatternWrapper>
@@ -64,21 +60,18 @@ function HeaderSection() {
           <img src="./assets/shared/logo.svg" alt="" />
         </h1>
       </LogoWrapper>
-      <IlustrationWrapper>
-        <img src="./assets/home/illustration-charts.svg" alt="" />
-      </IlustrationWrapper>
       <MainWrapper>
         <Title>
-          A simple solution to complex tasks is coming soon
+          Work smarter. Save time.
         </Title>
         <Description>
-          Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new collaboration platform built with an intuitive interface to improve productivity.
+          Easily manage your projects. Get on the list and receive in-app perks available only to early subscribers. We are moving into final development and getting ready for official launch soon.
         </Description>
-        <Button href="registration">Get Started</Button>
       </MainWrapper>
+      <CountdownTimer second targetDate={dateTimeAfterThreeDays} />
+      <Registration />
     </Section>
   )
 }
 
-export default HeaderSection
-
+export default HeaderRegistaration

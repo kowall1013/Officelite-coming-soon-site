@@ -6,12 +6,16 @@ const List = styled.ul`
   gap: 14px;
 `;
 
-const ListItem = styled.li`
+type ListItemProps = {
+  second?: boolean;
+}
+
+const ListItem = styled.li<ListItemProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${COLORS.primaryDark};
+  background-color: ${({ second }) => second ? COLORS.graySecond : COLORS.primaryDark};
   width: 72px;
   height: 92px;
   border-radius: 4px;
@@ -20,7 +24,7 @@ const ListItem = styled.li`
     font-weight: 700;
     font-size: 3.2rem;
     line-height: 4.8rem;
-    color: ${COLORS.white};
+    color: ${({ second }) => second ? COLORS.primaryBlue : COLORS.white};
   }
 
   span:nth-child(2) {
@@ -36,24 +40,25 @@ type ShowCounterProps = {
   hours: number;
   minutes: number;
   seconds: number;
+  second?: boolean;
 }
 
-function ShowCounter({ days, hours, minutes, seconds }: ShowCounterProps): JSX.Element {
+function ShowCounter({ days, hours, minutes, seconds, second }: ShowCounterProps): JSX.Element {
   return (
     <List>
-      <ListItem>
+      <ListItem second={second}>
         <span>{days}</span>
         <span>days</span>
       </ListItem>
-      <ListItem>
+      <ListItem second={second}>
         <span>{hours}</span>
         <span>hours</span>
       </ListItem>
-      <ListItem>
+      <ListItem second={second}>
         <span>{minutes}</span>
         <span>min</span>
       </ListItem>
-      <ListItem>
+      <ListItem second={second}>
         <span>{seconds}</span>
         <span>sec</span>
       </ListItem>
