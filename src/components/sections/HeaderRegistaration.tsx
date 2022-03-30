@@ -9,6 +9,7 @@ const Section = styled.section`
   justify-items: center;
   padding: 0 24px;
   background-color: ${COLORS.ashWhite};
+  overflow: hidden;
 `;
 
 const PatternWrapper = styled.div`
@@ -35,6 +36,8 @@ const Title = styled.h2`
   line-height: 4.8rem;
   font-weight: 700;
   text-align: center;
+
+ 
 `;
 
 const Description = styled.p`

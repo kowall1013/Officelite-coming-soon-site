@@ -4,7 +4,9 @@ import { COLORS } from '../../constant';
 
 type ButtonProps = {
   children: React.ReactNode;
-  href: string;
+  href?: string;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
 
 const StyledButton = styled.button`
@@ -16,13 +18,14 @@ const StyledButton = styled.button`
   background-color: ${COLORS.primaryBlue};
   border: none;
   border-radius: 50px;
+  width: 100%;
 `;
 
 
-function Button({ children, href }: ButtonProps): JSX.Element {
+function Button({ children, href, onClick, type }: ButtonProps): JSX.Element {
   return (
-    <Link to={href}>
-      <StyledButton>
+    <Link to={href || ''}>
+      <StyledButton onClick={onClick} type={type}>
         {children}
       </StyledButton>
     </Link>

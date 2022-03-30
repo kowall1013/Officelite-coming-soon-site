@@ -1,12 +1,21 @@
 import styled from "styled-components"
+import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { COLORS } from "../../constant";
 import Input from "../controls/Input"
 import Select from "../controls/Select";
+import Button from "../controls/Button";
+
+const RegistrationSchema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup.string().required().email().min(6).max(255),
+  phone: yup.number(),
+  company: yup.string()
+})
 
 const OFFERS_OPTIONS = [
   { value: 'basic', key: 'Basic Pack Free' },
-  { value: 'prop', key: 'Pro Pack $9.99' },
+  { value: 'pro', key: 'Pro Pack $9.99' },
   { value: 'unlimited', key: 'Unlimited Pack $19.99' },
 ]
 
@@ -17,8 +26,11 @@ const StyledForm = styled.form`
   border-radius: 13px;
   background-color: ${COLORS.white};
   width: 327px;
-`;
 
+  button {
+    margin-top: 40px;
+  }
+`;
 
 function Registration():JSX.Element {
 
@@ -26,10 +38,11 @@ function Registration():JSX.Element {
     initialValues: {
       name: '',
       email: '',
-      status: 'free',
+      status: 'basic',
       phone: '',
       company: ''
     },
+    validationSchema: RegistrationSchema,
     onSubmit: (values) => {
       console.log('values', values)
     }
@@ -38,21 +51,32 @@ function Registration():JSX.Element {
   const {
     values,
     setFieldValue,
-    handleChange
+    handleChange,
+    handleSubmit,
+    errors,
+    touched,
   } = formik;
+
+  console.log('errors', errors);
+  console.log('touched', touched);
+
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       <Input
         type="text"
         placeholder="Name"
         onChange={handleChange}
         value={values.name}
+        name="name"
+        isError={errors.name && touched.name}
       />
       <Input
         type="email"
         placeholder="Email Address"
         onChange={handleChange}
         value={values.email}
+        name="email"
+        isError={errors.email && touched.email}
       />
       <Select
         options={OFFERS_OPTIONS}
@@ -64,13 +88,18 @@ function Registration():JSX.Element {
         placeholder="Phone Number"
         onChange={handleChange}
         value={values.phone}
+        name="phone"
+        isError={errors.phone && touched.phone}
       />
        <Input
         type="text"
         placeholder="Company"
         onChange={handleChange}
         value={values.company}
+        name="company"
+        isError={errors.company && touched.company}
       />
+      <Button type="submit" onClick={handleSubmit}>Get on the list</Button>
     </StyledForm>
   )
 }

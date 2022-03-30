@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constant';
+import { COLORS, QUERIES } from '../../constant';
 import Button from '../controls/Button';
 
 const Section = styled.section`
@@ -8,18 +8,40 @@ const Section = styled.section`
   justify-items: center;
   padding: 0 24px 862px 24px;
   background-color: ${COLORS.ashWhite};
+  overflow: hidden;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-template-areas: 
+      "title title"
+      "main image"
+    ;
+    justify-items: center;
+  }
 `;
 
 const PatternWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(-100px) scale(1.3);
+  transform: translate(0px,-100px) scale(1.3);
+
+  @media ${QUERIES.tabletAndUp} {
+    transform: translate(50%,-50%) scale(0.7);
+  }
 `;
 
 const LogoWrapper = styled.div`
   margin-top: 46px;
   margin-bottom: 80px;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: title;
+    justify-self: start;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-left: 194px;
+  }
 `;
 
 const IlustrationWrapper = styled.div`
@@ -29,12 +51,27 @@ const IlustrationWrapper = styled.div`
     max-width: 50%;
     margin: 0 auto;
   }
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: image;
+
+    img {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
 `;
 
 const MainWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 540px;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: main;
+    align-items: flex-start;
+  }
 `;
 
 const Title = styled.h2`
@@ -43,6 +80,10 @@ const Title = styled.h2`
   line-height: 4.8rem;
   font-weight: 700;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    text-align: left;
+  }
 `;
 
 const Description = styled.p`
@@ -51,6 +92,10 @@ const Description = styled.p`
   text-align: center;
   color: ${COLORS.gray};
   margin-bottom: 24px;
+
+  @media ${QUERIES.tabletAndUp} {
+    text-align: left;
+  }
 `;
 
 function HeaderSection() {

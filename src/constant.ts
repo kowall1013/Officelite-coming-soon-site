@@ -20,4 +20,5 @@ export const COLORS = {
   orange: "hsla(0, 83%, 65%)",
   white: "hsla(0, 0%, 100%)",
   ashWhite: "hsla(0, 0%, 98%, 1)",
+  red: "hsla(0, 83%, 65%, 100)",
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constant';
+import { COLORS, QUERIES } from '../../constant';
 import { CardsContent } from './Cards';
 
 type CardWrapperProps = {
@@ -18,11 +18,32 @@ const CardWrapper = styled.li<CardWrapperProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: grid;
+    grid-template-areas: 
+      "wrapper list"
+      "button list"
+    ;
+    padding: 40px 50px;
+    justify-items: flex-start;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 type CardTitleProps = {
   secondColor: boolean;
 }
+
+const Wrapper = styled.div`
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: wrapper
+  };
+`;
 
 const CardTitle = styled.h3<CardTitleProps>`
   font-size: 2rem;
@@ -59,6 +80,17 @@ const List = styled.ul<CardTitleProps>`
     font-size: 1.6rem;
     line-height: 2.8rem;
   }
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: list;
+    justify-self: center;
+  };
+`;
+
+const ButtonWrapper = styled.div`
+  @media ${QUERIES.tabletAndUp} {
+    grid-area: button
+  };
 `;
 
 type CardProps = {
@@ -70,13 +102,17 @@ function Card({ card }: CardProps): JSX.Element {
   const { plan, price, priceLabel, descriptions, btn, bgc, withBgcPattern, secondColor } = card;
   return (
     <CardWrapper bgc={bgc} withBgcPattern={withBgcPattern} >
-      <CardTitle secondColor={secondColor}>{plan}</CardTitle>
-      <CardPrice secondColor={secondColor}>{price}</CardPrice>
-      <CardPriceLabel secondColor={secondColor}>{priceLabel}</CardPriceLabel>
+      <Wrapper>
+        <CardTitle secondColor={secondColor}>{plan}</CardTitle>
+        <CardPrice secondColor={secondColor}>{price}</CardPrice>
+        <CardPriceLabel secondColor={secondColor}>{priceLabel}</CardPriceLabel>
+      </Wrapper>
       <List secondColor={secondColor}>
         {descriptions.map(dsc => <li key={dsc.id}>{dsc.feature}</li>)}
       </List>
-      {btn}
+      <ButtonWrapper>
+        {btn}
+      </ButtonWrapper>
     </CardWrapper>
   )
 }

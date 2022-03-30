@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constant';
+import { QUERIES } from '../../constant';
 import Card from './Card';
 
 type DescriptionContent = {
@@ -34,6 +34,11 @@ const CardsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media ${QUERIES.laptopAndUp} {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 

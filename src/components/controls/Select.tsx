@@ -143,6 +143,7 @@ function Select({
     setSelectedOption({ key, value });
     onChange(value)
   }
+
   return (
     <SelectWrapper>
       {label}
